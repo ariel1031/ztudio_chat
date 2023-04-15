@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>파이썬 플라스크 통신하기</title>
+    </head>
+    <body>
+        <form action="/diction_post" method="post" class="input-form">
+            <div class="inputBox">
+                <input
+                    type="text"
+                    name="input_name"
+                    placeholder="대사를 입력해주세요"
+                />
+                <button id="btn" onsubmit="event.preventDefault(); start();">
+                    Send
+                </button>
+            </div>
+        </form>
+        <div id="chatBox"></div>
+
+        <script>
+            const chatBox = document.querySelector('#chatBox')
+            let usermessages = []
+
+            const start = () => {
+                // html에 입력한 내용 띄우기
+                const dictation = document.querySelector(
+                    '.input-form .inputBox input'
+                )
+                const chatMessage = document.createElement('div')
+                chatMessage.innerHTML = `<p>${dictation.value}</p>`
+                chatBox.appendChild(chatMessage)
+
+                //전송할 메세지
+                usermessages.push(dictation.value)
+                //초기화
+                dictation.value = ''
+
+                // const response
+            }
+        </script>
+    </body>
+</html>
